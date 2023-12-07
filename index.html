@@ -1,37 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Site Web</title>
+    <title>Statfootix - Top 50 Buteurs</title>
+
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1;
+            /* Couleur de fond gris clair */
+        }
+
         header {
-            background-color: #021367;
-            color: white;
+            background-color: #032135;
+            /* Bleu */
+            color: #fff;
             padding: 20px;
             text-align: center;
         }
-        nav {
-            display: flex;
-            justify-content: center;
+
+        section {
+            padding: 20px;
         }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
+        .player {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #00d057;
+            /* Vert */
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .player img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
         }
     </style>
 </head>
+
 <body>
+
     <header>
-        <h1>Mon Site Web</h1>
-        <nav>
-            <a href="#">Accueil</a>
-            <a href="#">Contact</a>
-            <a href="#">À propos</a>
-            <a href="#">Nos services</a>
-        </nav>
+        <h1>Statfootix - Top 50 Buteurs</h1>
+        <p>Le classement des meilleurs buteurs de l'histoire du football.</p>
     </header>
+
+    <section id="topScorers">
+        <!-- Les joueurs seront affichés ici -->
+    </section>
+
+    <!-- Intégration de l'iframe -->
+    <iframe width="100%" height="482" frameborder="0" src="https://observablehq.com/embed/80fb5593047b058e?cells=chart"></iframe>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Exemple de données
+            const topScorers = [
+                { name: 'Cristiano Ronaldo', goals: 805, image: 'ronaldo.jpg', description: 'Légendaire buteur portugais.' },
+                { name: 'Lionel Messi', goals: 798, image: 'messi.jpg', description: 'Magicien argentin du ballon rond.' },
+                // ... Ajoutez d'autres joueurs
+            ];
+
+            const topScorersContainer = document.getElementById('topScorers');
+
+            // Parcours des joueurs pour les afficher
+            topScorers.forEach(player => {
+                const playerElement = document.createElement('div');
+                playerElement.classList.add('player');
+
+                const playerImage = document.createElement('img');
+                playerImage.src = player.image;
+                playerImage.alt = player.name;
+
+                const playerInfo = document.createElement('div');
+                playerInfo.innerHTML = `<h2>${player.name}</h2><p>${player.description}</p><p>Buts: ${player.goals}</p>`;
+
+                playerElement.appendChild(playerImage);
+                playerElement.appendChild(playerInfo);
+
+                topScorersContainer.appendChild(playerElement);
+            });
+        });
+    </script>
+
 </body>
+
 </html>
