@@ -1,18 +1,87 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1> Bienvenue sur notre site internet </h1>
-    <pre>  Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. 
-      Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réali
-      ser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu
-        n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment,
-         par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</pre>
-    <p>
-        <a href="index.html"> cliquez ici</a>
-    </p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statfootix - Top 50 Buteurs</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ecf0f1; /* Couleur de fond gris clair */
+        }
+
+        header {
+            background-color: #032135; /* Bleu */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        .player {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #00d057; /* Vert */
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+
+        .player img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Statfootix - Top 50 Buteurs</h1>
+        <p>Le classement des meilleurs buteurs de l'histoire du football.</p>
+    </header>
+
+    <section id="topScorers">
+        <!-- Les joueurs seront affichés ici -->
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Exemple de données
+            const topScorers = [
+                { name: 'Cristiano Ronaldo', goals: 805, image: 'ronaldo.jpg', description: 'Légendaire buteur portugais.' },
+                { name: 'Lionel Messi', goals: 798, image: 'messi.jpg', description: 'Magicien argentin du ballon rond.' },
+                // ... Ajoutez d'autres joueurs
+            ];
+
+            const topScorersContainer = document.getElementById('topScorers');
+
+            // Parcours des joueurs pour les afficher
+            topScorers.forEach(player => {
+                const playerElement = document.createElement('div');
+                playerElement.classList.add('player');
+
+                const playerImage = document.createElement('img');
+                playerImage.src = player.image;
+                playerImage.alt = player.name;
+
+                const playerInfo = document.createElement('div');
+                playerInfo.innerHTML = `<h2>${player.name}</h2><p>${player.description}</p><p>Buts: ${player.goals}</p>`;
+
+                playerElement.appendChild(playerImage);
+                playerElement.appendChild(playerInfo);
+
+                topScorersContainer.appendChild(playerElement);
+            });
+        });
+    </script>
+
+</body>
 </html>
